@@ -1,0 +1,298 @@
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url("./assets/fonts/OpenSans/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: OpenSans-Bold;
+  src: url("./assets/fonts/OpenSans/OpenSans-Bold.ttf");
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: OpenSans-Regular, sans-serif;
+}
+
+a {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #bbbbbb;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+p {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: black;
+  margin: 0px;
+}
+
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+input::-webkit-input-placeholder {
+  color: #999999;
+}
+input:-moz-placeholder {
+  color: #999999;
+}
+input::-moz-placeholder {
+  color: #999999;
+}
+input:-ms-input-placeholder {
+  color: #999999;
+}
+
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  font-family: OpenSans-Bold;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  padding: 0 30px;
+}
+
+.w-full {
+  width: 100vw !important;
+}
+.h-full {
+  height: 100vh !important;
+}
+
+.h-full-screen {
+  min-height: 100vh;
+  background: #f2f2f2;
+}
+
+/* PADDING */
+
+.p-b-43 {
+  padding-bottom: 43px;
+}
+.p-t-0 {
+  padding-top: 0;
+}
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-t-23 {
+  padding-top: 23px;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  font-family: OpenSans-Bold;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  background: #00ad5f;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+}
+
+.container-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  background: #2575fc;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn:hover {
+  background-color: transparent;
+}
+.btn:hover:before {
+  opacity: 1;
+}
+
+.not-share {
+  color: red;
+}
+
+.share {
+  color: green !important;
+}
+
+.mobile-modal {
+  background: black;
+}
+
+.mobile-modal > .mat-dialog-container {
+  background: black;
+  padding: 0;
+}
+
+.desktop-modal > .mat-dialog-container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+fa-icon {
+  cursor: pointer;
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selectable * {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+app-item.my-selected-item .mat-card {
+  background: #03a9f4;
+}
+
+.padding-left {
+  padding-left: 7px;
+}
+
+h2.page-title {
+  font-weight: 700;
+  font-size: 1.75em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+header.special {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+h2.page-title fa-icon {
+  padding-left: 5px;
+}

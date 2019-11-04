@@ -1,0 +1,52 @@
+<div id="storage-container" #container (window:resize)="onResize()">
+  <header class="special">
+    <h2 class="page-title">Storage</h2>
+  </header>
+  <div id="grid-container" #gridContainer>
+    <mat-grid-list
+      *ngIf="actualPlan"
+      [cols]="breakpoint"
+      [rowHeight]="50 * breakpoint + '%'"
+    >
+      <mat-grid-tile>
+        <p class="center">
+          {{ toGB(actualPlan.usedSpace) }} of
+          {{ toGB(actualPlan.availableSpace) }}
+        </p>
+        <mat-progress-spinner
+          [diameter]="innerMinDimension - 70"
+          strokeWidth="20"
+          class="center"
+          mode="determinate"
+          value="100"
+          color="primary"
+        >
+        </mat-progress-spinner>
+        <mat-progress-spinner
+          class="center"
+          [diameter]="innerMinDimension - 70"
+          strokeWidth="20"
+          mode="determinate"
+          [value]="100 * (actualPlan.usedSpace / actualPlan.availableSpace)"
+          color="accent"
+        >
+        </mat-progress-spinner>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div *ngIf="actualPlan && plans" id="plans-container">
+          <h3>Upgrade now your storage plan!</h3>
+          <button
+            mat-raised-button
+            *ngFor="let plan of plans"
+            [disabled]="isLowerOrEqualPlan(plan.id)"
+            [ngClass]="getColor(plan.id)"
+            (click)="changePlan(plan)"
+          >
+            <p class="title">{{ plan.name }}</p>
+            <p class="subtitle">{{ plan.description }}</p>
+          </button>
+        </div></mat-grid-tile
+      >
+    </mat-grid-list>
+  </div>
+</div>

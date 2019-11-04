@@ -1,0 +1,44 @@
+<form
+  #myForm="ngForm"
+  id="reset-password"
+  ngForm
+  ngNativeValidate
+  (ngSubmit)="attemptPasswordChange(myForm)"
+>
+  <span class="form-title p-b-43">
+    Your Own Galleries
+  </span>
+
+  <div class="wrap-input rs1">
+    <input
+      name="email"
+      ngModel
+      placeholder="Email"
+      required
+      type="email"
+      value=""
+    />
+  </div>
+
+  <div class="wrap-btn half-wrap">
+    <button
+      [disabled]="!enableSend"
+      class="btn"
+      form="reset-password"
+      value="ForgotPass"
+    >
+      Send email
+    </button>
+  </div>
+
+  <div class="text-center w-full p-t-23">
+    <a (click)="navigateSignIn()">
+      Sign in
+    </a>
+  </div>
+  <div class="text-center w-full p-t-10">
+    <a (click)="navigateSignUp()">
+      Sign up
+    </a>
+  </div>
+</form>

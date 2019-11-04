@@ -1,0 +1,129 @@
+:host {
+  -moz-animation: gallery 0.75s ease-out 0.4s forwards;
+  -webkit-animation: gallery 0.75s ease-out 0.4s forwards;
+  -ms-animation: gallery 0.75s ease-out 0.4s forwards;
+  animation: gallery 0.75s ease-out 0.4s forwards;
+  margin-bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: relative;
+  width: 25%;
+  height: 300px;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+@-moz-keyframes gallery {
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes gallery {
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes gallery {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gallery {
+  100% {
+    opacity: 1;
+  }
+}
+
+#card {
+  box-sizing: border-box;
+  border-bottom: 1px solid #cccccc;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#item-img {
+  width: 100%;
+  height: 80%;
+  background-image: url("../../../assets/images/no_image.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  min-height: 100%;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+#video-icon {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bottom-icon {
+  margin-right: 3%;
+}
+
+#name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 20%;
+  margin: 0;
+  padding: 5%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+@media screen and (max-width: 1080px) {
+  :host {
+    width: 33.33%;
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  :host {
+    width: 50%;
+    padding-right: 1%;
+    padding-left: 1%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  :host {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

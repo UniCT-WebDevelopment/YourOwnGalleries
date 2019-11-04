@@ -1,0 +1,19 @@
+<dts-select-container
+  #dtsContainer
+  [(selectedItems)]="selectedItems"
+  [style.padding]="items.length ? '20px' : 0"
+  class="content"
+  (itemSelected)="toggleTopbarMenu()"
+  (itemDeselected)="toggleTopbarMenu()"
+  appMouseDragScroll
+>
+  <app-item
+    *ngFor="let item of items; let idx = index"
+    [dtsSelectItem]="item"
+    [item]="item"
+    (contextmenu)="openContextMenu($event, item)"
+    (click)="checkMobileClick(idx, item.id)"
+    (dblclick)="openItemModal(idx, item.id)"
+  >
+  </app-item>
+</dts-select-container>

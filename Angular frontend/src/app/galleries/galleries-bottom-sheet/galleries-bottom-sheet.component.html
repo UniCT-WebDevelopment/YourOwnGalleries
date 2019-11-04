@@ -1,0 +1,38 @@
+<mat-nav-list>
+  <a *ngIf="share" mat-list-item (click)="sendAction(share.action)">
+    <span mat-line
+      ><fa-icon [icon]="faShareAlt"></fa-icon>{{ share.title }}</span
+    >
+    <span mat-line>{{ share.description }}</span>
+  </a>
+
+  <a
+    *ngIf="data.targets.length === 1 && data.targets[0].token"
+    mat-list-item
+    (click)="sendAction('copy')"
+  >
+    <span mat-line><fa-icon [icon]="faCopy"></fa-icon>Link</span>
+    <span mat-line
+      >Copy {{ data.elementsType }} shareable link to clipboard</span
+    >
+  </a>
+
+  <a
+    *ngIf="data.targets.length === 1"
+    mat-list-item
+    (click)="openNewNameDialog()"
+  >
+    <span mat-line><fa-icon [icon]="faEdit"></fa-icon>Rename</span>
+    <span mat-line>Type a new name for this {{ data.elementsType }}</span>
+  </a>
+
+  <a mat-list-item (click)="sendAction('download')">
+    <span mat-line><fa-icon [icon]="faDownload"></fa-icon>Download</span>
+    <span mat-line>Start selected {{ data.elementsType }} download</span>
+  </a>
+
+  <a mat-list-item (click)="sendAction('delete')">
+    <span mat-line><fa-icon [icon]="faTrashAlt"></fa-icon>Delete</span>
+    <span mat-line>Get rid of selected {{ data.elementsType }}</span>
+  </a>
+</mat-nav-list>

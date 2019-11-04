@@ -1,0 +1,20 @@
+<div class="topbar-container">
+  <p id="username">{{ username }}</p>
+  <fa-icon
+    class="topbar-icon"
+    [icon]="faPowerOff"
+    (click)="openLogoutDialog()"
+  ></fa-icon>
+  <fa-icon
+    class="topbar-icon"
+    *ngIf="menuEnabled"
+    [icon]="faEllipsisV"
+    (click)="menuClick()"
+  ></fa-icon>
+  <fa-icon
+    [ngClass]="badgeActive ? 'notification' : ''"
+    class="topbar-icon"
+    [icon]="faDownload"
+    (click)="showDownloads()"
+  ></fa-icon>
+</div>

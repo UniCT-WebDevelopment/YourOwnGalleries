@@ -1,0 +1,28 @@
+<div id="download-container">
+  <div id="icon-container">
+    <mat-progress-spinner
+      *ngIf="!aborted && !completed"
+      [mode]="progress ? 'determinate' : 'indeterminate'"
+      [color]="progress ? 'primary' : 'accent'"
+      [value]="progress"
+      diameter="25"
+      strokeWidth="2"
+    ></mat-progress-spinner>
+    <fa-icon
+      id="aborted"
+      *ngIf="aborted"
+      [icon]="faRedo"
+      (click)="redoDownload()"
+    >
+    </fa-icon>
+    <fa-icon id="completed" *ngIf="completed" [icon]="faCheck"> </fa-icon>
+  </div>
+  <div id="content">
+    <span id="title">{{ download.name }}</span>
+    <span id="subtitle">{{ download.type }}</span>
+  </div>
+  <div id="close">
+    <fa-icon id="close" [icon]="faTimes" (click)="onCloseClick()"></fa-icon>
+  </div>
+</div>
+<hr />

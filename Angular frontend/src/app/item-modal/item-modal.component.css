@@ -1,0 +1,101 @@
+#item-container {
+  flex: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.full-flex {
+  width: 100%;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+
+fa-icon {
+  color: white;
+}
+
+.action-icon {
+  margin-left: 10px;
+}
+
+video,
+img {
+  width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain;
+}
+
+p {
+  width: 100%;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 0;
+}
+
+p.name {
+  font-size: 0.8em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+p.owner {
+  font-size: 1em;
+  font-weight: bold;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+#main-container {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+#top-menu {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 50px;
+  font-size: 1em;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+span {
+  line-height: 100%;
+}
+
+.control-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  padding: 10px;
+}
+
+#left.control-container {
+  justify-content: flex-start;
+}
+#right.control-container {
+  justify-content: flex-end;
+}

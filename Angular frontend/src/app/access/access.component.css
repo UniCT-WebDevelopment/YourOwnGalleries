@@ -1,0 +1,97 @@
+/*//////////////////////////////////////////////////////////////////
+  [ signin - signup - forgot ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-login100 {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  background: url("../../assets/images/bg.jpg");
+  background-size: cover;
+}
+
+.wrap-login100 {
+  width: 560px;
+}
+
+.form-title {
+  width: 100%;
+  display: block;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fefefe;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.wrap-input {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 50%;
+  height: 75px;
+  position: relative;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  background-color: #fff;
+}
+
+.wrap-input.rs1 {
+  border-right: none;
+}
+
+.wrap-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  height: 75px;
+  position: relative;
+  border: none;
+  border-bottom: none;
+  background-color: #fff;
+}
+
+.half-wrap.wrap-btn {
+  width: 50%;
+}
+
+.wrap-btn > button {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .wrap-input,
+  .wrap-btn {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .wrap-input.rs1 {
+    border-right: 1px solid #e0e0e0;
+  }
+}

@@ -1,0 +1,66 @@
+<div id="settings-container">
+  <mat-accordion multi="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Email
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="email"
+          [(ngModel)]="user.email"
+          spellcheck="false"
+        />
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Username
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input spellcheck="false" matInput [(ngModel)]="user.name" />
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Password
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="New password"
+          [(ngModel)]="user.password"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirm password"
+          [(ngModel)]="user.confirmPass"
+        />
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Delete account
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Account and all related data will be deleted.</p>
+      <button mat-raised-button (click)="deleteAccount()">I understand</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button id="save" mat-raised-button (click)="saveChanges()">Save</button>
+</div>

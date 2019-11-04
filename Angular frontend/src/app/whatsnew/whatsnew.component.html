@@ -1,0 +1,15 @@
+<div class="gallery">
+  <header class="special">
+    <h2 class="page-title">What's New</h2>
+  </header>
+  <app-items-container
+    (itemsChanged)="onDeletedItems($event)"
+    [items]="items"
+  ></app-items-container>
+  <mat-spinner
+    *ngIf="bottomSpinner"
+    mode="indeterminate"
+    diameter="40"
+    strokeWidth="5"
+  ></mat-spinner>
+</div>

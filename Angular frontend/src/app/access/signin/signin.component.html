@@ -1,0 +1,59 @@
+<form
+  #myForm="ngForm"
+  id="sign-in"
+  ngForm
+  ngNativeValidate
+  (ngSubmit)="attemptSignIn(myForm)"
+>
+  <span class="form-title p-b-43">
+    Your Own Galleries
+  </span>
+
+  <div class="wrap-input rs1">
+    <input
+      name="email"
+      ngModel
+      placeholder="Email"
+      required
+      type="email"
+      value=""
+      spellcheck="false"
+    />
+  </div>
+
+  <div class="wrap-input">
+    <input
+      minlength="8"
+      name="pass"
+      ngModel
+      placeholder="Password"
+      required
+      type="password"
+      value=""
+    />
+  </div>
+
+  <div class="wrap-btn">
+    <button
+      [disabled]="!enableSubmit"
+      class="btn"
+      form="sign-in"
+      type="submit"
+      value="SignIn"
+    >
+      Sign in
+    </button>
+  </div>
+
+  <div class="text-center w-full p-t-23">
+    <a (click)="navigateForgot()">
+      Forgot password?
+    </a>
+  </div>
+
+  <div class="text-center w-full p-t-10">
+    <a (click)="navigateSignUp()">
+      Sign up
+    </a>
+  </div>
+</form>

@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <div class="card-header">
+    <span>DOWNLOADS &nbsp;</span>
+    <fa-icon [icon]="faTimes" (click)="closeDownloads()"></fa-icon>
+  </div>
+  <mat-card-content>
+    <mat-list id="list" appDownloads> </mat-list>
+  </mat-card-content>
+  <div class="card-actions">
+    <button mat-button (click)="cleanDownloads()">CLEAN</button>
+    <button mat-button (click)="abortAllDownloads()">ABORT ALL</button>
+  </div>
+</mat-card>

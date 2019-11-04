@@ -1,0 +1,82 @@
+<form
+  #myForm="ngForm"
+  id="sign-up"
+  ngForm
+  ngNativeValidate
+  (ngSubmit)="attemptSignUp(myForm)"
+>
+  <span class="form-title p-b-43 p-t-0">
+    Your Own Galleries
+  </span>
+
+  <div class="wrap-input rs1">
+    <input
+      name="email"
+      ngModel
+      placeholder="Email"
+      required
+      type="email"
+      value=""
+      autocomplete="off"
+      spellcheck="false"
+    />
+  </div>
+
+  <div class="wrap-input">
+    <input
+      name="name"
+      ngModel
+      placeholder="Name"
+      required
+      type="text"
+      value=""
+      autocomplete="false"
+      spellcheck="false"
+    />
+  </div>
+
+  <div class="wrap-input rs1">
+    <input
+      #pass
+      (keyup)="checkPasswords(pass.value, cPass.value)"
+      minlength="8"
+      name="pass"
+      ngModel
+      placeholder="Password"
+      required
+      type="password"
+      value=""
+    />
+  </div>
+
+  <div class="wrap-input">
+    <input
+      #cPass
+      (keyup)="checkPasswords(pass.value, cPass.value)"
+      minlength="8"
+      name="c_pass"
+      ngModel
+      placeholder="Confirm password"
+      required
+      type="password"
+      value=""
+    />
+  </div>
+
+  <div class="wrap-btn">
+    <button
+      [disabled]="!enableSubmit"
+      class="btn"
+      form="sign-up"
+      value="SignUp"
+    >
+      Sign up
+    </button>
+  </div>
+
+  <div class="text-center w-full p-t-23">
+    <a (click)="navigateSignIn()">
+      Sign in
+    </a>
+  </div>
+</form>

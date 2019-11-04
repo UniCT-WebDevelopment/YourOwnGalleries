@@ -1,0 +1,25 @@
+<mat-card id="card">
+  <div id="item-img">
+    <img *ngIf="link | secure | async as url" [src]="url.url" />
+  </div>
+  <fa-icon
+    *ngIf="isVideo"
+    id="video-icon"
+    [icon]="faPlayCircle"
+    size="3x"
+  ></fa-icon>
+  <mat-card-content class="content"
+    ><fa-icon
+      class="bottom-icon"
+      [icon]="isVideo ? faFileVideo : faFileImage"
+      size="lg"
+    ></fa-icon
+    ><fa-icon
+      class="bottom-icon"
+      [icon]="faShareAlt"
+      [ngClass]="item.shared ? 'share' : 'not-share'"
+      size="lg"
+    ></fa-icon
+    ><span id="name" isEllipsisActive>{{ item.name }}</span></mat-card-content
+  >
+</mat-card>

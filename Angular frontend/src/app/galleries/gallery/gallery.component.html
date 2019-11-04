@@ -1,0 +1,77 @@
+<div
+  #scrollable
+  class="gallery-wrapper"
+  infiniteScroll
+  [infiniteScrollDistance]="3"
+  [infiniteScrollThrottle]="250"
+  (scrolled)="onScroll()"
+  [scrollWindow]="true"
+  appDragDrop
+  (onFileDropped)="verifyAndUploadFiles($event)"
+  [ngClass]="items.length > 0 ? '' : 'empty'"
+>
+  <header class="special">
+    <h2 *ngIf="gallery" class="page-title">
+      {{ gallery.name }}
+      <fa-icon [icon]="faUpload" (click)="inputClick()"></fa-icon>
+      <fa-icon [icon]="faTools" (click)="toggleItemsTools()"></fa-icon>
+    </h2>
+  </header>
+  <div *ngIf="gallery" class="gallery">
+    <input
+      type="file"
+      #fileInput
+      (change)="uploadFiles($event.target.files)"
+      [accept]="acceptFiles"
+      multiple
+    />
+    <div *ngIf="itemsToolsEnabled" class="tools">
+      <mat-form-field id="search-items">
+        <input
+          matInput
+          (keyup)="searchItems($event.target.value)"
+          placeholder="Search for item"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </mat-form-field>
+      <mat-form-field id="order-items">
+        <mat-label>Order by</mat-label>
+        <mat-select
+          [(value)]="selectedOption"
+          (selectionChange)="sortGallery()"
+        >
+          <mat-option
+            *ngFor="let option of orderOptions"
+            value="{{ option }}"
+            >{{ option }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <button mat-mini-fab color="" (click)="sortGalleryFromButton()">
+        <fa-icon [icon]="orderIcon"></fa-icon>
+      </button>
+    </div>
+    <div class="upload" *ngIf="isUploading && currentUpload">
+      <p>
+        <b>{{ currentUpload.name }}</b
+        >&nbsp;({{ currentUpload.number }}/{{ totalUploads }})
+      </p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="uploadProgress"
+      ></mat-progress-bar>
+    </div>
+    <app-items-container
+      (itemsChanged)="onItemsChanged($event)"
+      [items]="items"
+    ></app-items-container>
+    <mat-spinner
+      *ngIf="bottomSpinner"
+      mode="indeterminate"
+      diameter="40"
+      strokeWidth="5"
+      class="scroll-loading-spinner"
+    ></mat-spinner>
+  </div>
+</div>

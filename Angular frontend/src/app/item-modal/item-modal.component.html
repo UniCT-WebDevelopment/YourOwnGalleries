@@ -1,0 +1,87 @@
+<div *ngIf="actualItem" id="top-menu" mat-dialog-title>
+  <span>{{ actualItem.name }}</span>
+  <fa-icon
+    class="action-icon"
+    [icon]="faInfoCircle"
+    (click)="showUploader()"
+    size="lg"
+  ></fa-icon>
+  <fa-icon
+    class="action-icon"
+    [icon]="faDownload"
+    (click)="downloadItem()"
+    size="lg"
+  ></fa-icon>
+  <fa-icon
+    class="action-icon"
+    [icon]="faWindowClose"
+    (click)="closeDialog()"
+    size="lg"
+  ></fa-icon>
+</div>
+
+<div id="main-container">
+  <div *ngIf="!mobile" id="left" class="control-container">
+    <button
+      *ngIf="data.items.length > 1"
+      id="right"
+      class="slide"
+      mat-mini-fab
+      (click)="prevItem()"
+    >
+      <fa-icon [icon]="faAngleLeft" size="lg"></fa-icon>
+    </button>
+  </div>
+
+  <div id="item-container">
+    <ng-container *ngFor="let item of items; let idx = index">
+      <ng-container *ngIf="item.url; else loading">
+        <pinch-zoom
+          (swipeleft)="nextItem()"
+          (swiperight)="prevItem()"
+          *ngIf="item.type === 'image/jpeg' && idx === actualIndex"
+          height="100%"
+          (events)="handlePinchZoomEvents($event)"
+        >
+          <img
+            (contextmenu)="preventDefault($event)"
+            [ngClass]="mobile ? 'mobile-item' : 'desktop-item'"
+            [src]="item.url"
+          />
+        </pinch-zoom>
+        <video
+          *ngIf="item.type === 'video/mp4' && idx === actualIndex"
+          (swipeleft)="nextItem()"
+          (swiperight)="prevItem()"
+          controls
+          autoplay
+          preload="auto"
+          disablepictureinpicture
+          controlslist="nodownload"
+        >
+          <source [src]="item.url" type="video/mp4" />
+        </video>
+      </ng-container>
+      <ng-template #loading>
+        <fa-icon
+          *ngIf="idx === actualIndex"
+          id="spinner"
+          class="icon"
+          [icon]="faSpinner"
+          [spin]="true"
+        ></fa-icon>
+      </ng-template>
+    </ng-container>
+  </div>
+  <div *ngIf="!mobile" id="right" class="control-container">
+    <button
+      *ngIf="data.items.length > 1"
+      id="left"
+      class="slide"
+      mat-mini-fab
+      (click)="nextItem()"
+    >
+      <fa-icon [icon]="faAngleRight" size="lg"></fa-icon>
+    </button>
+  </div>
+</div>

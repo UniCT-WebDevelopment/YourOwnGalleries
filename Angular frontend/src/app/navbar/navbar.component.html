@@ -1,0 +1,9 @@
+<nav>
+  <ul>
+    <li *ngFor="let item of navItems">
+      <a [routerLink]="['/' + item.name]" [routerLinkActive]="['active']"
+        ><fa-icon [icon]="item.icon"></fa-icon
+      ></a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,134 @@
+<div
+  class="gallery"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="250"
+  (scrolled)="onScroll()"
+  [scrollWindow]="true"
+>
+  <header class="special">
+    <h2 class="page-title">
+      Galleries
+      <fa-icon [icon]="faSearch" (click)="toggleGallerySearch()"></fa-icon>
+      <fa-icon [icon]="faShareAlt" (click)="toggleGalleryShare()"></fa-icon>
+    </h2>
+  </header>
+  <div class="table-wrapper">
+    <mat-form-field
+      class="gallery-tool"
+      *ngIf="gallerySearchEnabled"
+      [@slideFromLeft]
+    >
+      <input
+        matInput
+        (keyup)="searchGalleries($event.target.value)"
+        placeholder="Search for galleries"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field
+      class="gallery-tool"
+      *ngIf="galleryShareEnabled"
+      [@slideFromRight]
+    >
+      <input
+        matInput
+        (input)="manageShare($event.target)"
+        placeholder="Shareable link"
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+    <div class="container-btn">
+      <button class="btn" (click)="openCreateDialog()">
+        Create new gallery
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="select">
+        <th class="select" mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+          >
+          </mat-checkbox>
+        </th>
+        <td class="select" mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="changeSelection($event, row)"
+            [checked]="selection.isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th class="name" mat-header-cell *matHeaderCellDef mat-sort-header>
+          Name
+        </th>
+        <td class="name" mat-cell *matCellDef="let gallery">
+          <fa-icon
+            [ngClass]="gallery.shared ? 'share' : 'not-share'"
+            [icon]="faShareAlt"
+          ></fa-icon>
+          <span appIsEllipsisActive class="padding-left">{{
+            gallery.name
+          }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="owner">
+        <th class="owner" mat-header-cell *matHeaderCellDef mat-sort-header>
+          Owner
+        </th>
+        <td class="owner" mat-cell *matCellDef="let gallery">
+          <span appIsEllipsisActive>{{ gallery.owner }}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updated">
+        <th
+          class="padding-left updated"
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+        >
+          Updated
+        </th>
+        <td class="updated" mat-cell *matCellDef="let gallery">
+          {{ gallery.updated }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="size">
+        <th
+          class="padding-left size"
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+        >
+          Size
+        </th>
+        <td class="padding-left size" mat-cell *matCellDef="let gallery">
+          {{ adjustSize(gallery.size) }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="row"
+        mat-row
+        *matRowDef="let gallery; columns: displayedColumns"
+        (click)="selectGallery(gallery)"
+        (contextmenu)="openContextMenu($event, gallery)"
+      ></tr>
+    </table>
+
+    <mat-spinner
+      *ngIf="bottomSpinner"
+      mode="indeterminate"
+      diameter="40"
+      strokeWidth="5"
+    ></mat-spinner>
+  </div>
+</div>
