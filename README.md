@@ -74,8 +74,10 @@ which will create the tables represented by the migrations contained in **dist/d
 Application can be served from **dist** folder running the command
 
 ```
-php artisan serve --port=PORT
+php artisan serve --port=8000
 ```
+
+Port 8000 is needed because it is used in the frontend.
 
 # Laravel APIs
 
